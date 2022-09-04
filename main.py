@@ -24,7 +24,7 @@ async def stores():
     return stores
 
 
-@app.get("/api/v1/store")
+@app.get("/api/v1/store/{id}")
 async def getstores(id):
     getstores = supabase.table(os.getenv('STORES_TABLE')).select('*').eq('siteid', id).execute()
     resp = {
